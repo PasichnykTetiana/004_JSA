@@ -6,6 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #message{
+            width: 100px;
+            height: 50px;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
 <!--Задание 1
@@ -13,7 +20,42 @@
 вводит значение пытаясь угадать загаданное число. Если пользователь не угадывает значение, страница
 выводит сообщение с текстом «загаданное значение больше введенного вами» или «загаданное
 значение меньше введенного вами». Подумайте, как можно применить DHTML в таком приложении.-->
+<form id="test">
+    <p><b>Ваше число (до 100):</b><br>
+        <input id="num" type="text" size="40">
+    </p>
+    <p><input type="button" value="Go" onclick="Button()">
+    <p id="message"></p>
 <script>
+
+let num=document.getElementById("num"),
+    message=document.getElementById("message");
+
+function Button() {
+
+let a = num.value,
+    i,
+    b = Math.floor(Math.random() * Math.floor(101));
+    if (a !== (/^\d+$/)){
+        message.innerHTML="Вводить только числа";
+        message.style.backgroundColor="red";
+    }
+    if (a<b){
+        message.innerHTML="Ваше число меньше";
+        message.style.backgroundColor="green";
+        }
+    if (a>b){
+        message.innerHTML="Ваше число больше";
+        message.style.backgroundColor="yellow";
+        }
+    if (a>100){
+        message.innerHTML="Некорректное число";
+        message.style.backgroundColor="red";
+    }
+        if (a===b){
+            message.innerHTML="Угадали";
+        }
+}
 
 </script>
 </body>
