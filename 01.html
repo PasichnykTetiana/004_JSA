@@ -29,14 +29,14 @@
 <script>
 
 let num=document.getElementById("num"),
-    message=document.getElementById("message");
-
+    message=document.getElementById("message"),
+    b = Math.floor(Math.random() * Math.floor(101));
+    console.log(b)
 function Button() {
 
 let a = num.value,
-    i,
-    b = Math.floor(Math.random() * Math.floor(101));
-    if (a !== (/^\d+$/)){
+    i;
+    if (a != (/^\d+$/)){
         message.innerHTML="Вводить только числа";
         message.style.backgroundColor="red";
     }
@@ -52,9 +52,11 @@ let a = num.value,
         message.innerHTML="Некорректное число";
         message.style.backgroundColor="red";
     }
-        if (a===b){
+    if (a==b){
             message.innerHTML="Угадали";
+            message.style.backgroundColor="white";
         }
+
 }
 
 </script>
